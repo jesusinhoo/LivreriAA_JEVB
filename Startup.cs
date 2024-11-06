@@ -60,6 +60,7 @@ namespace LivreriAA_JEVB
             {
                 endpoints.MapControllers();
             });
+            AppDbInitialer.Seed(app);
         }
     }
 }

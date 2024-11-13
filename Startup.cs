@@ -1,4 +1,5 @@
 using LivreriAA_JEVB.Data;
+using LivreriAA_JEVB.Data.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -34,6 +35,9 @@ namespace LivreriAA_JEVB
             services.AddControllers();
             //Configurar DbContext con Sql
             services.AddDbContext<AppDbContext>(options => options.UseSqlServer(ConnectionString));
+
+            //Configurar el servicio para ser usado
+            services.AddTransient<BookService>();
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "LivreriAA_JEVB", Version = "v1" });
